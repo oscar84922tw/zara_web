@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ZARA</title>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'vendor/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'dist/css/sb-admin-2.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- DataTables CSS -->
+    <link href="{% static 'vendor/datatables-plugins/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="{% static 'vendor/datatables-responsive/dataTables.responsive.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <style type="text/css">
+        .container-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .container-scroll>.row>.col-lg-4 {
+            display: inline-block;
+            float: none;
+        }
+    </style>
+    {% block othercss %} {% endblock %}
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ZARA</a>
+            </div>
+            <!-- /.navbar-header -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-home fa-fw"></i>Headquarter<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/product"><i class="fa fa-cube fa-fw"></i>Product</a>
+                                </li>
+                                <li>
+                                    <a href="/design_under_production"><i class="fa fa-gavel fa-fw"></i>Design under Production</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Branch<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/list"><i class="fa fa-th-list fa-fw"></i>View in List</a>
+                                </li>
+                                <li>
+                                    <a href="/region"><i class="fa fa-globe fa-fw"></i>View in Region</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="/fashion"><i class="fa fa-signal fa-fw"></i>Fashion</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-bullhorn"></i> Advertisement<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/google"><i class="fa fa-google fa-fw"></i>Google Adwords</a>
+                                </li>
+                                <li>
+                                    <a href="/fb"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Page Content -->
+        {% block mainbody %} {% endblock %}
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/metisMenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
+    <script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{% static 'vendor/datatables-plugins/dataTables.bootstrap.min.js'%}"></script>
+    <script src="{% static 'vendor/datatables-responsive/dataTables.responsive.js'%}"></script>
+    {% block otherjs %} {% endblock %}
+</body>
+
+</html>

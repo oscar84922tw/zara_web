@@ -1,0 +1,192 @@
+{% extends "base.html" %} {% load staticfiles %} {% block othercss %}
+<style type="text/css">
+    .borderline {
+        border-right: 2px solid #BCBCBC;
+        margin: 10px;
+        padding: 5px;
+    }
+</style>
+{% endblock %} {% block mainbody %}
+
+
+<!-- Page Content -->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Google Adwords</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-dollar fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Invested</div>
+                            <div class="huge">$ 10,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-random fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Budget</div>
+                            <div class="huge">$ 100,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-database fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Percentage</div>
+                            <div class="huge">57.8 %</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="container-scroll">
+                <div class="row">
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Interactions</p>
+                        <h2>171</h2>
+                    </div>
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Exposure</p>
+                        <h2>1567</h2>
+                    </div>
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Interaction Rate</p>
+                        <h2>10.91 %</h2>
+                    </div>
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Average Cost</p>
+                        <h2>$ 0.92</h2>
+                    </div>
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Conversions</p>
+                        <h2>0.64</h2>
+                    </div>
+                    <div class="col-lg-2 text-center borderline">
+                        <p>Expense per Conversion</p>
+                        <h2>$ 3.00</h2>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                        <p>Total Expense</p>
+                        <h2>$ 156.5</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#overview" data-toggle="tab">Overview</a>
+                    </li>
+                    <li><a href="#group" data-toggle="tab">Group</a>
+                    </li>
+                    <li><a href="#keyword" data-toggle="tab">Keyword</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="overview">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <br>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="flot-chart">
+                                            <div class="flot-chart-content" id="overview-flot-line-chart"></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- ./row line chart -->
+                    </div>
+                    <div class="tab-pane fade" id="group">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <br>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="flot-chart">
+                                            <div class="flot-chart-content" id="group-flot-line-chart"></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- ./row line chart -->
+                    </div>
+                    <div class="tab-pane fade" id="keyword">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <br>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="flot-chart">
+                                            <div class="flot-chart-content" id="keyword-flot-line-chart"></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- ./row line chart -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.row tab-->
+</div>
+<!-- /#page-wrapper -->
+{% endblock %} {% block otherjs %}
+<script src="{% static 'vendor/flot/excanvas.min.js'%}"></script>
+<script src="{% static 'vendor/flot/jquery.flot.js'%}"></script>
+<script src="{% static 'vendor/flot/jquery.flot.pie.js'%}"></script>
+<script src="{% static 'vendor/flot/jquery.flot.resize.js'%}"></script>
+<script src="{% static 'vendor/flot/jquery.flot.time.js'%}"></script>
+<script src="{% static 'vendor/flot-tooltip/jquery.flot.tooltip.min.js'%}"></script>
+<script src="{% static 'data/google-flot-data.js'%}"></script>
+<!-- Custom Theme JavaScript -->
+{% endblock %}
