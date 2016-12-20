@@ -1,5 +1,15 @@
 {% extends "base.html" %} {% load staticfiles %} {% block othercss %}
 <style type="text/css">
+    .container-scroll {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .container-scroll> .row> .col-lg-2 {
+        display: inline-block;
+        float: none;
+    }
+
     .borderline {
         border-right: 2px solid #BCBCBC;
         margin: 10px;
