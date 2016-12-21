@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from female.models import BranchRequest
+from female.models import BranchRequest, DesignUnderProduction, BranchList
 # Create your views here.
 
 
@@ -11,7 +11,8 @@ def main(request):
 
 
 def design_under_production(request):
-    return render(request, 'design-under-production.html')
+    design = DesignUnderProduction.objects.all()
+    return render(request, 'design-under-production.html', {'dupp': design})
 
 
 def _fashion(request):
@@ -27,13 +28,15 @@ def _google(request):
 
 
 def _list(request):
-    return render(request, 'list.html')
+    branch = BranchList.objects.all()
+    return render(request, 'list.html', {'branch': branch})
 
 
 def _product(request):
-    request_products =  BranchRequest.objects.all()
+    request_products = BranchRequest.objects.all()
     return render(request, 'product.html', {'products': request_products})
 
 
 def _region(request):
-    return render(request, 'region.html')
+    branch = BranchList.objects.all()
+    return render(request, 'region.html', {'branch': branch})

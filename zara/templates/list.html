@@ -23,34 +23,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                          {% for i in branch %}
                             <tr class="odd">
-                                <td>Asia</td>
-                                <td>TAIWAN0001</td>
-                                <td>1000</td>
-                                <td class="center">56</td>
+                                <td>{{i.region}}</td>
+                                <td>{{i.branch_id}}</td>
+                                <td>{{i.customer_num}}</td>
+                                <td class="center">{{i.ranking}}</td>
                                 <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
                             </tr>
-                            <tr class="even">
-                                <td>Asia</td>
-                                <td>TAIWAN0001</td>
-                                <td>1000</td>
-                                <td class="center">56</td>
-                                <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                            </tr>
-                            <tr class="odd">
-                                <td>Asia</td>
-                                <td>TAIWAN0001</td>
-                                <td>1000</td>
-                                <td class="center">56</td>
-                                <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                            </tr>
-                            <tr class="even">
-                                <td>Asia</td>
-                                <td>TAIWAN0001</td>
-                                <td>1000</td>
-                                <td class="center">56</td>
-                                <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

@@ -82,6 +82,17 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class BranchList(models.Model):
+    branch_id = models.TextField(db_column='branch_ID', primary_key=True)  # Field name made lowercase.
+    region = models.TextField(blank=True, null=True)
+    customer_num = models.IntegerField(blank=True, null=True)
+    ranking = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'branch_list'
+
+
 class BranchRequest(models.Model):
     product_id = models.IntegerField(db_column='Product_ID', primary_key=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
@@ -95,6 +106,18 @@ class BranchRequest(models.Model):
     class Meta:
         managed = False
         db_table = 'branch_request'
+
+
+class DesignUnderProduction(models.Model):
+    product_id = models.TextField(primary_key=True)
+    weight = models.IntegerField(blank=True, null=True)
+    publish_date = models.TextField(blank=True, null=True)
+    recommend_price = models.IntegerField(blank=True, null=True)
+    img_url = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'design_under_production'
 
 
 class DjangoAdminLog(models.Model):
