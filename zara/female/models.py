@@ -10,6 +10,18 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class Shortage(models.Model):
+    shortage_id = models.TextField(primary_key=True)
+    branch_id = models.TextField(blank=True, null=True)
+    product_id = models.TextField(blank=True, null=True)
+    quantity = models.IntegerField(blank=True, null=True)
+    has_send = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Shortage'
+
+
 class AuthGroup(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     name = models.CharField(unique=True, max_length=80)
@@ -94,12 +106,12 @@ class BranchList(models.Model):
 
 
 class BranchRequest(models.Model):
-    product_id = models.IntegerField(db_column='Product_ID', primary_key=True)  # Field name made lowercase.
+    product_id = models.TextField(db_column='Product_ID', primary_key=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     price = models.IntegerField(db_column='Price', blank=True, null=True)  # Field name made lowercase.
     weight = models.IntegerField(db_column='Weight', blank=True, null=True)  # Field name made lowercase.
     type = models.TextField(db_column='Type', blank=True, null=True)  # Field name made lowercase.
-    productivity = models.TextField(db_column='Productivity', blank=True, null=True)  # Field name made lowercase.
+    productivity = models.IntegerField(db_column='Productivity', blank=True, null=True)  # Field name made lowercase.
     sales_quantity = models.IntegerField(db_column='Sales_quantity', blank=True, null=True)  # Field name made lowercase.
     inventory = models.IntegerField(db_column='Inventory', blank=True, null=True)  # Field name made lowercase.
 
@@ -109,10 +121,13 @@ class BranchRequest(models.Model):
 
 
 class DesignUnderProduction(models.Model):
-    product_id = models.TextField(primary_key=True)
-    weight = models.IntegerField(blank=True, null=True)
-    publish_date = models.TextField(blank=True, null=True)
+    product_id = models.IntegerField(primary_key=True)
+    name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     recommend_price = models.IntegerField(blank=True, null=True)
+    weight = models.IntegerField(blank=True, null=True)
+    type = models.TextField(db_column='Type', blank=True, null=True)  # Field name made lowercase.
+    productivity = models.IntegerField(db_column='Productivity', blank=True, null=True)  # Field name made lowercase.
+    publish_date = models.TextField(blank=True, null=True)
     img_url = models.TextField(blank=True, null=True)
 
     class Meta:

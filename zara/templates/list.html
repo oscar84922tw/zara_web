@@ -24,12 +24,19 @@
                         </thead>
                         <tbody>
                           {% for i in branch %}
+
                             <tr class="odd">
                                 <td>{{i.region}}</td>
                                 <td>{{i.branch_id}}</td>
                                 <td>{{i.customer_num}}</td>
                                 <td class="center">{{i.ranking}}</td>
-                                <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
+                                <td class="center">
+                                  {% for k in i.shortages %}
+                                  {% if k.has_send == 0 %}
+                                  <a href="/shortage?id={{k.product_id}}&branch_id={{i.branch_id}}">{{k.product_id}}</a> </a>
+                                  {% endif %}
+                                  {% endfor %}
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -43,10 +50,9 @@
     </div>
 </div>
 <!-- /#page-wrapper -->
-{% endblock %} {% block othercss %}
-<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'vendor/datatables-plugins/dataTables.bootstrap.min.js' %}"></script>
-<script src="{% static 'vendor/datatables-responsive/dataTables.responsive.js' %}"></script>
+{% endblock %} {% block otherjs %}
+
+<script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
 <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({

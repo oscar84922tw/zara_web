@@ -42,7 +42,11 @@
                                         <td>{{i.branch_id}}</td>
                                         <td>{{i.customer_num}}</td>
                                         <td class="center">{{i.ranking}}</td>
-                                        <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
+                                        <td class="center">
+                                            {% for k in i.shortages %} {% if k.has_send == 0 %}
+                                            <a href="/shortage?id={{k.product_id}}&branch_id={{i.branch_id}}">{{k.product_id}}</a> </a>
+                                            {% endif %} {% endfor %}
+                                        </td>
                                     </tr>
                                     {% endif %} {% endfor %}
                                 </tbody>
@@ -65,14 +69,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  {% for i in branch %} {% if 'America' in i.region %}
-                                  <tr class="odd">
-                                      <td>{{i.branch_id}}</td>
-                                      <td>{{i.customer_num}}</td>
-                                      <td class="center">{{i.ranking}}</td>
-                                      <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                                  </tr>
-                                  {% endif %} {% endfor %}
+                                    {% for i in branch %} {% if 'America' in i.region %}
+                                    <tr class="odd">
+                                        <td>{{i.branch_id}}</td>
+                                        <td>{{i.customer_num}}</td>
+                                        <td class="center">{{i.ranking}}</td>
+                                        <td class="center">
+                                            {% for k in i.shortages %}
+                                            <a href="/shortage?id={{k}}&branch_id={{i.branch_id}}">{{k}}</a> </a>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    {% endif %} {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -93,14 +101,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  {% for i in branch %} {% if 'Africa' in i.region %}
-                                  <tr class="odd">
-                                      <td>{{i.branch_id}}</td>
-                                      <td>{{i.customer_num}}</td>
-                                      <td class="center">{{i.ranking}}</td>
-                                      <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                                  </tr>
-                                  {% endif %} {% endfor %}
+                                    {% for i in branch %} {% if 'Africa' in i.region %}
+                                    <tr class="odd">
+                                        <td>{{i.branch_id}}</td>
+                                        <td>{{i.customer_num}}</td>
+                                        <td class="center">{{i.ranking}}</td>
+                                        <td class="center">
+                                            {% for k in i.shortages %}
+                                            <a href="/shortage?id={{k}}&branch_id={{i.branch_id}}">{{k}}</a> </a>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    {% endif %} {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -121,14 +133,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  {% for i in branch %} {% if 'Europe' in i.region %}
-                                  <tr class="odd">
-                                      <td>{{i.branch_id}}</td>
-                                      <td>{{i.customer_num}}</td>
-                                      <td class="center">{{i.ranking}}</td>
-                                      <td class="center"><a href="">(ProductID) </a><a href="">(ProductID) </a></td>
-                                  </tr>
-                                  {% endif %} {% endfor %}
+                                    {% for i in branch %} {% if 'Europe' in i.region %}
+                                    <tr class="odd">
+                                        <td>{{i.branch_id}}</td>
+                                        <td>{{i.customer_num}}</td>
+                                        <td class="center">{{i.ranking}}</td>
+                                        <td class="center">
+                                            {% for k in i.shortages %}
+                                            <a href="/shortage?id={{k}}&branch_id={{i.branch_id}}">{{k}}</a> </a>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    {% endif %} {% endfor %}
                                 </tbody>
                             </table>
                         </div>
