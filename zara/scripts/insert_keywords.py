@@ -27,14 +27,11 @@ class JiebaCounter():
         data = re.sub(
             "[A-Za-z0-9\[\`\~\!\@\#\$\^\&\*\(\)\=\|\{\}\'\:\;\'\,\[\]\.\<\>\/\?\~\！\@\#\\\&\*\%]", "", data).replace('\n', '').replace(' ', '')
         tt = jieba.cut(data, cut_all=True)
-
         for item in tt:
-            # print(len(item))
             if item in hash and len(item) > 1 and item not in stopwords:
                 hash[item] += 1
             else:
                 hash[item] = 1
-
         return sorted(hash.items(), key=operator.itemgetter(1), reverse=True)
 
 f = open('../zara_female.csv')
