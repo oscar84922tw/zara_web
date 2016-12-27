@@ -180,3 +180,25 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+
+class KeywordCounter(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    keyword = models.TextField()
+    frequence = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'keyword_counter'
+
+
+class KeywordRelations(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    product_id = models.TextField()
+    product_name = models.TextField()
+    keyword = models.TextField()
+    keyword_weight = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'keyword_relations'
