@@ -1,9 +1,12 @@
 from __future__ import division
+
 import jieba
+import operator
+
 from django.db.models import Q
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from female.models import BranchRequest, DesignUnderProduction, BranchList, Shortage
+from female.models import BranchRequest, DesignUnderProduction, BranchList, Shortage, KeywordCounter, KeywordRelations
 from random import randint, shuffle
 # from female.models import BranchRequest, Des
 # Create your views here.
@@ -20,9 +23,34 @@ def design_under_production(request):
     return render(request, 'design-under-production.html', {'dupp': design})
 
 
-def _fashion(request):
+def _produce(request):
+    product_id_list = request.POST.getlist("produce")
+    for i in product_id_list:
+        print(i)
+        KeywordRelations.objects.filter(product_id=i).delete()
+    return HttpResponseRedirect('/fashion')
 
-    return render(request, 'fashion.html')
+
+def _fashion(request):
+    count = KeywordCounter.objects.all().order_by('-frequence')
+    pants = KeywordRelations.objects.filter(
+        Q(keyword='長褲') | Q(keyword='牛仔褲')).order_by('keyword_weight')
+    for i in pants:
+        keyword_list = []
+        keyword_num = []
+        sumweight = 0
+        allocate_pants = KeywordRelations.objects.filter(
+            Q(product_name=i.product_name) & Q(product_id=i.product_id))
+        if len(allocate_pants) < 3:
+            pass
+        else:
+            for j in allocate_pants[:3]:
+                keyword_list.append(j.keyword)
+                keyword_num.append(float('%.1f' % j.keyword_weight))
+                sumweight += float('%.1f' % j.keyword_weight)
+            i.zipped = zip(keyword_list, keyword_num)
+            i.total_weight = sumweight
+    return render(request, 'fashion.html', {'ordered': count, 'pants': pants})
 
 
 def _fb(request):

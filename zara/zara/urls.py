@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from female.views import main, design_under_production, _fashion, _fb, _google, _list, _product, _region, _shortage, _ship
+from female.views import main, design_under_production, _fashion, _fb, _google, _list, _product, _region, _shortage, _ship, _produce
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', main),
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^product/$', _product),
     url(r'^region/$', _region),
     url(r'^shortage$', _shortage),
-    url(r'^ship$', _ship)
+    url(r'^ship$', _ship),
+    url(r'^produce$', _produce)
 
 ]

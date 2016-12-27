@@ -198,6 +198,8 @@ class KeywordRelations(models.Model):
     product_name = models.TextField()
     keyword = models.TextField()
     keyword_weight = models.TextField(blank=True, null=True)
+    price = models.TextField(blank=True, null=True)  # This field type is a guess.
+    img_url = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     class Meta:
         managed = False

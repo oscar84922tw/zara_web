@@ -1,5 +1,26 @@
-{% extends "base.html" %}{% load staticfiles %}{% block mainbody %}
-<!-- Page Content -->
+{% extends "base.html" %}{% load staticfiles %}{% block mainbody %} {% block othercss %}
+<style type="text/css">
+    .container-scroll {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .container-scroll>.row>.col-lg-4 {
+        display: inline-block;
+        float: none;
+    }
+
+    .checkbox-circle {
+        width: 20px;
+        height: 20px;
+        padding: 6px 0;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.428571429;
+    }
+</style>
+{% endblock %}
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -7,98 +28,51 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
-    <div class="panel panel-info">
-        <div class="panel-body">
-            <div class="container-scroll">
+    <form action="/produce" method='POST'>
+        {% csrf_token %}
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div class="container-scroll">
+                    <div class="row">
+                        {% for pant in pants %} {% if pant.zipped %}
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="row">
+
+                                        <div class="col-lg-4">
+                                            <input type="checkbox" class="checkbox-circle" name="produce" value="{{pant.product_id}}">
+                                            <img src="{{pant.img_url}}" class="img-responsive">
+                                        </div>
+
+                                        <div class="col-lg-8">
+                                            <h3>{{pant.product_name}}</h3> {% for key, value in pant.zipped %}
+
+                                            <p>{{key}}({{value}})</p>
+
+                                            {% endfor %}
+                                            <p>Total Weight: <span>{{pant.total_weight}}</span></p>
+                                            <p>Recommended Price: <span>${{pant.price}}</span></p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-4 -->
+                        {%endif%} {% endfor %}
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
-                                        </button>
-                                        <img src="../img/001.jpg" class="img-responsive">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Total Weight: <span>5.4</span></p>
-                                        <p>Recommended Price: <span>$5000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block produceBtn">Produce</button>
                     </div>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
-                                        </button>
-                                        <img src="../img/001.jpg" class="img-responsive">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Total Weight: <span>5.4</span></p>
-                                        <p>Recommended Price: <span>$5000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
-                                        </button>
-                                        <img src="../img/001.jpg" class="img-responsive">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Total Weight: <span>5.4</span></p>
-                                        <p>Recommended Price: <span>$5000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
-                                        </button>
-                                        <img src="../img/001.jpg" class="img-responsive">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Keyword(0.0)</p>
-                                        <p>Total Weight: <span>5.4</span></p>
-                                        <p>Recommended Price: <span>$5000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <div class="panel panel-default">
         <div class="panel-heading" align="center">
             <h4>Keyword Weight</h4>
@@ -110,30 +84,18 @@
                     <tr>
                         <th>Ranking</th>
                         <th>Keyword</th>
-                        <th>Weight</th>
+                        <th>Frequence</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for i in ordered %}
                     <tr class="odd">
-                        <td>1</td>
-                        <td>英倫</td>
-                        <td>5.5</td>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.keyword}}</td>
+                        <td>{{i.frequence}}</td>
                     </tr>
-                    <tr class="even">
-                        <td>1</td>
-                        <td>英倫</td>
-                        <td>5.5</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>1</td>
-                        <td>英倫</td>
-                        <td>5.5</td>
-                    </tr>
-                    <tr class="even">
-                        <td>1</td>
-                        <td>英倫</td>
-                        <td>5.5</td>
-                    </tr>
+                    {% endfor %}
+
                 </tbody>
             </table>
         </div>
@@ -142,14 +104,21 @@
     <!-- /.panel -->
 </div>
 <!-- /#page-wrapper -->
-{% endblock %}
 
-{% block otherjs %}
+{% endblock %} {% block otherjs %}
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables-plugins/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/datatables-responsive/dataTables.responsive.js' %}"></script>
 <script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
     });
-});
+</script>
+<script>
+    $('.produceBtn').click(function() {
+        alert('Submit these design');
+    });
 </script>
 {% endblock %}
