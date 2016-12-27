@@ -34,7 +34,7 @@ def _produce(request):
 def _fashion(request):
     count = KeywordCounter.objects.all().order_by('-frequence')
     pants = KeywordRelations.objects.filter(
-        Q(keyword='長褲') | Q(keyword='牛仔褲')).order_by('keyword_weight')
+        Q(keyword='長褲') | Q(keyword='牛仔褲') | Q(keyword='上衣')).order_by('keyword_weight')
     for i in pants:
         keyword_list = []
         keyword_num = []
