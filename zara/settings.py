@@ -122,3 +122,8 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 # LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
+
+import os
+if os.getenv('DATABASE_URL') is not None:
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
