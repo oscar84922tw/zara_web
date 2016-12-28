@@ -25,7 +25,7 @@ SECRET_KEY = '%o4l^p2a(v=oay)ax8fwxyucs-sjdvqi@ejg$06pl0w#-^3g=v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ u'shrouded-plateau-33721.herokuapp.com']
 
 
 # Application definition
