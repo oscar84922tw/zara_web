@@ -38,8 +38,8 @@ for _, row in enumerate(data):
         _type = row[0]
         _price = re.sub("[^0-9]", "", row[1])
         _name = row[2]
-        _invetory = random.randint(300, 1200)
-        _sales = random.randint(1000, 3000)
+        _invetory = random.randint(10000, 30000)
+        _sales = random.randint(90000, 120000)
         _orderQuntity = random.randint(400, 1300)
         _weight = random.randint(60, 500)
         conn = sqlite3.connect('../db.sqlite3')
@@ -54,8 +54,8 @@ for _, row in enumerate(data):
         _type = row[0]
         _price = re.sub("[^0-9]", "", row[1])
         _name = row[2]
-        _invetory = random.randint(300, 1200)
-        _sales = random.randint(1000, 3000)
+        _invetory = random.randint(10000, 30000)
+        _sales = random.randint(90000, 120000)
         _orderQuntity = random.randint(400, 1300)
         _weight = random.randint(60, 500)
         _url = row[3]
