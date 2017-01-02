@@ -197,13 +197,13 @@ $(document).ready(function() {
             label: "褲款",
             data: data2
         }, {
-            label: "洋裝",
+            label: "運動系列",
             data: data3
         }, {
             label: "鞋包",
             data: data4
         }, {
-            label: "運動系列",
+            label: "洋裝",
             data: data5
         }];
         var options = {
