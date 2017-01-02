@@ -57,19 +57,19 @@ def _fashion(request):
 def _fb(request):
     invested = 16335
     budget = 50000
-    percent = (invested / (budget + 500000)) * 100
+    percent = (budget / (budget + 500000)) * 100
     return render(request, 'fb.html', {'invested': invested,
                                        'budget': budget,
-                                       'percentages': float('%.4f' % percent)})
+                                       'percentages': float('%.2f' % percent)})
 
 
 def _google(request):
     invested = 32245
     budget = 450000
-    percent = (invested / (budget + 70000)) * 100
+    percent = (budget / (budget + 70000)) * 100
     return render(request, 'google.html', {'invested': invested,
                                            'budget': budget,
-                                           'percentages': float('%.4f' % percent)})
+                                           'percentages': float('%.2f' % percent)})
 
 
 def _list(request):
