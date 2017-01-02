@@ -50,7 +50,7 @@ def _fashion(request):
                 keyword_num.append(float('%.1f' % j.keyword_weight))
                 sumweight += float('%.1f' % j.keyword_weight)
             i.zipped = zip(keyword_list, keyword_num)
-            i.total_weight = sumweight
+            i.total_weight = float('%.1f' % sumweight)
     return render(request, 'fashion.html', {'ordered': count, 'pants': pants})
 
 
